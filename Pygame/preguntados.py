@@ -29,8 +29,6 @@ sonido_correcto = pygame.mixer.Sound(RUTA_SONIDO_CORRECTO)
 sonido_inicio.play()
 #Imagenes
 imagen_recuadros_pregunta_score = pygame.image.load(ruta_imagen_recuadros)
-imagen_corazones_actual = cambiar_imagen_vidas_segun_intentos(intentos)
-imagen_corazones = pygame.image.load(imagen_corazones_actual)
 imagen_personaje = pygame.image.load(ruta_imagen_willy)
 imagen_correcto = pygame.image.load(ruta_imagen_correcto)
 imagen_incorrecto = pygame.image.load(ruta_imagen_incorrecto)
@@ -126,7 +124,9 @@ while corriendo:
         imagen_recuadro_a = pygame.image.load(color_recuadro_a)
         imagen_recuadro_b = pygame.image.load(color_recuadro_b)
         imagen_recuadro_c = pygame.image.load(color_recuadro_c)
-
+        imagen_corazones_actual = cambiar_imagen_vidas_segun_intentos(intentos)
+        imagen_corazones = pygame.image.load(imagen_corazones_actual)
+        
         pantalla.blit(imagen_recuadro_a,(0,0))
         pantalla.blit(imagen_recuadro_b,(0,98))
         pantalla.blit(imagen_recuadro_c,(0,196))
