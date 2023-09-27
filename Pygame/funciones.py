@@ -17,18 +17,18 @@ def determinar_si_respondio_bien(posicion_lista_preguntas:int,respuesta_elegida:
 
     return respondio_bien
 
-def  determinar_color_imagen_recuadro (lista_correctas:list,posicion_lista_preguntas:int,respuesta_elegida:str)-> str:
-    respuesta_correcta = lista_correctas[posicion_lista_preguntas]
-    if respuesta_elegida == "" or respuesta_elegida == respuesta_correcta:
+def  determinar_color_imagen_recuadro (posicion_lista_preguntas:int,respuesta_elegida:str)-> str:
+    respondio_bien = determinar_si_respondio_bien(posicion_lista_preguntas,respuesta_elegida)
+    if respuesta_elegida == "" or respondio_bien:
         imagen = ruta_imagen_recuadro_respuesta
-    elif respuesta_elegida != respuesta_correcta:
+        return imagen
+    elif not respondio_bien:
         imagen = ruta_imagen_recuadro_respuesta_roja
     return imagen
 
 def dividir_string_en_dos_lineas (lista_strings:list,posicion_lista:int,linea_buscada:str)->str:
     pregunta = lista_strings[posicion_lista]
     largo_pregunta = len(pregunta)
-    pregunta_largo_par = convertir_pregunta_impar_a_par(largo_pregunta)
     lista_palabras_pregunta = (pregunta.split(" "))
     linea_uno = ""
     linea_dos = ""
@@ -66,12 +66,6 @@ def determinar_si_numero_es_par(numero:int):
     if resto == 0:
         es_par = True
     return es_par
-
-def convertir_pregunta_impar_a_par(largo_pregunta:int) -> int:
-    pregunta_es_par = determinar_si_numero_es_par(largo_pregunta)
-    if not pregunta_es_par:
-                largo_pregunta += 1
-    return(largo_pregunta)
 
 def cambiar_imagen_vidas_segun_intentos (intentos:int) -> str:
     match intentos:
