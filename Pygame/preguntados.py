@@ -59,9 +59,9 @@ while corriendo:
         
     if completo_partida == False:
         if  cambiar_color_recuadros == False:
-            color_recuadro_a = determinar_color_imagen_recuadro(lista_respuestas_correctas,posicion_listas,"")
-            color_recuadro_b = determinar_color_imagen_recuadro(lista_respuestas_correctas,posicion_listas,"")
-            color_recuadro_c = determinar_color_imagen_recuadro(lista_respuestas_correctas,posicion_listas,"")
+            color_recuadro_a = determinar_color_imagen_recuadro(posicion_listas,"")
+            color_recuadro_b = determinar_color_imagen_recuadro(posicion_listas,"")
+            color_recuadro_c = determinar_color_imagen_recuadro(posicion_listas,"")
 
         #Textos        
         texto_pregunta = FUENTE_TEXTO.render((lista_preguntas[posicion_listas]),True,(COLOR_AMARILLO))
@@ -96,18 +96,15 @@ while corriendo:
                 if intentos != 0 and not respondio_bien:
                     if (posicion_click[0] > 40 and posicion_click[0] < 440) and (posicion_click[1] > 240 and posicion_click[1] < 310):
                         respuesta_elegida = "a"
-                        color_recuadro_a = determinar_color_imagen_recuadro(lista_respuestas_correctas,posicion_listas,"a")
-                        cambiar_color_recuadros = True
+                        color_recuadro_a = determinar_color_imagen_recuadro(posicion_listas,"a")
                         toco_respuesta = True
                     elif (posicion_click[0] > 40 and posicion_click[0] < 440) and (posicion_click[1] > 335 and posicion_click[1] < 405):
                         respuesta_elegida = "b"
-                        color_recuadro_b = determinar_color_imagen_recuadro(lista_respuestas_correctas,posicion_listas,"b")
-                        cambiar_color_recuadros = True
+                        color_recuadro_b = determinar_color_imagen_recuadro(posicion_listas,"b")
                         toco_respuesta = True
                     elif (posicion_click[0] > 40 and posicion_click[0] < 440) and (posicion_click[1] > 430 and posicion_click[1] < 503):
                         respuesta_elegida = "c"
-                        color_recuadro_c = determinar_color_imagen_recuadro(lista_respuestas_correctas,posicion_listas,"c")
-                        cambiar_color_recuadros = True
+                        color_recuadro_c = determinar_color_imagen_recuadro(posicion_listas,"c")
                         toco_respuesta = True
         if toco_respuesta:
             respondio_bien = determinar_si_respondio_bien(posicion_listas,respuesta_elegida)
